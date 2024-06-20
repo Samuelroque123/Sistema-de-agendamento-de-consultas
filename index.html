@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consultas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/img/cuidados-de-saude.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>Agendamento de Consultas</h1>
+        <form id="appointmentForm">
+            <label for="fullName">Nome Completo:</label>
+            <input type="text" id="fullName" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required>
+            
+            <label for="specialty">Especialidade:</label>
+            <select id="specialty" required>
+                <option value="">Selecione uma especialidade</option>
+                <option value="Ortopedia">Ortopedia</option>
+                <option value="Infectologia">Infectologia</option>
+                <option value="Cardiologia">Cardiologia</option>
+                <option value="Oncologia">Oncologia</option>
+            </select>
+            
+            <label for="appointmentDate">Data e Hora:</label>
+            <input type="datetime-local" id="appointmentDate" required>
+            
+            <button type="submit">Agendar Consulta</button>
+        </form>
+        <h2>Consultas Agendadas</h2>
+        <ul id="appointmentsList"></ul>
+    </div>
+    <script>
+        // Verifica se o usuário está autenticado
+        if (!localStorage.getItem('isAuthenticated')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("DX3-XL2ItkxoTZdtw"); // Substitua YOUR_USER_ID pelo seu User ID do EmailJS
+       })();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
